@@ -1,14 +1,13 @@
-## Production (cc-production)
+# Production (cc-production)
 
-```Total value of all dental services provided by a practice which includes all billable services rendered to patients, such as examinations, cleanings, fillings, and other dental procedures.```
+Total value of all dental services provided by a practice which includes all billable services rendered to patients, such as examinations, cleanings, fillings, and other dental procedures.
 
-See below for a list of refined variations of this metric. 
+> See below for a list of refined variations of this metric
 
-
-### Historical Production
+## Historical Production
 All completed delivered procedures that have occurred before the current day regardless of the type of appointment.
 
-`Note that missed appointments are captured in this metric`
+> Note: missed appointments are included
 
 <details>
 <summary>Technical Details:</summary>
@@ -19,15 +18,15 @@ All completed delivered procedures that have occurred before the current day reg
   * isCompleted must be true
     * `EXCEPTION: Tracker prior to 3.21.0 does not reliably set isCompleted and therefore must be ignored from consideration`
   * in rare cases when duplicate entries exist for one pmsId, then the maximum totalAmount present across those records is used in the evaluation
-  * `note that isDeletedFromPms is not evaluated at this point`
+  * `Note: isDeletedFromPms is not evaluated at this point`
 </details>
 
 <details>
   <summary>Usages:</summary>
 
-#### Dashboard
+### Dashboard
 * 30 Days Average
-#### Reporting
+### Reporting
 * Production (Huron only so far)
   * Total Production
   * Practice Production by Type
@@ -42,7 +41,61 @@ All completed delivered procedures that have occurred before the current day reg
 Formerly known as:
 * Production MTD
 
-### Scheduled Production
+## Today's Completed Production (name TBD)
+All delivered procedures that have occurred on the current day which includes missed appointments.
+
+> Note: derived from **Historical Production** but specifically scoped to the current day
+
+<details>
+<summary>Technical Details:</summary>
+
+* DeliveredProcedure
+  * see definition in **Historical Production** except:
+    * entryDate must be the current day
+</details>
+
+<details>
+  <summary>Usages:</summary>
+
+### Dashboard
+* Today's Billed Production
+### Reporting
+
+</details>
+
+## Live Completed Production (name TBD)
+> **Historical Production** + **Today's Completed Production**
+
+<details>
+<summary>Technical Details:</summary>
+
+* see [Historical Production](#historical-production)
+* see [Today's Completed Production](#todays-completed-production)
+</details>
+
+<details>
+  <summary>Usages:</summary>
+
+### Dashboard
+* Month Gross
+* Production Bar
+* YTD Production
+### Reporting
+* Practice Performance
+  * Month Forecast
+  * Next Month Forecast
+* Provider Performance
+  * Month Forecast
+  * Next Month Forecast
+
+</details>
+
+Formerly known as:
+* Production
+
+***
+
+## Scheduled Production
 Uses the monetary amount attached to upcoming delivered procedures and appointments for the **current day and days in the future**.
 
 <details>
@@ -54,7 +107,7 @@ Uses the monetary amount attached to upcoming delivered procedures and appointme
   * isCompleted is ignored
   * deletedAt must be null
   * in rare cases when duplicate entries exist for one pmsId, then the maximum totalAmount present across those records is used in the evaluation
-  * `note that isDeletedFromPms is not evaluated at this point`
+  * `Note: isDeletedFromPms is not evaluated at this point`
 * Appointments
   * uses estimatedRevenue
   * startDate must be current day or in the future
@@ -68,25 +121,42 @@ Uses the monetary amount attached to upcoming delivered procedures and appointme
 <details>
   <summary>Usages:</summary>
 
-#### Dashboard
+### Dashboard
 * Today's Scheduled (to be verified)
-#### Reporting
+### Reporting
 * Practice Performance
   * Scheduled Production
 * Provider Performance
   * Scheduled Production
 </details>
 
-### Expected Production
-The sum of all production which was delivered as well as estimates of all of the upcoming production to yet be performed. Production occurring on the current day is captured only as an estimate of what is to be performed.
-
-`Note that missed appointments are included`
-
+## Live Scheduled Production (name TBD)
+Compliment to **Today's Completed Production** which captures **Scheduled Production** that has yet to be processed on the current day and in the future.
+> **Scheduled Production** _minus_ 'estimate procedures which were completed today' 
 
 <details>
 <summary>Technical Details:</summary>
 
-**Historical Production** + **Scheduled Production**
+* see [Scheduled Production](#scheduled-production)
+* excludes procedures that would now be captured in **Today's Completed Production**
+</details>
+
+<details>
+  <summary>Usages:</summary>
+
+### Dashboard
+### Reporting
+</details>
+
+***
+
+## Expected Production
+The sum of all production which was delivered as well as estimates of all of the upcoming production to yet be performed. Production occurring on the current day is captured only as an estimate of what is to be performed.
+
+> **Historical Production** + **Scheduled Production**
+
+<details>
+<summary>Technical Details:</summary>
 
 * see [Historical Production](#historical-production)
 * see [Scheduled Production](#scheduled-production)
@@ -95,9 +165,9 @@ The sum of all production which was delivered as well as estimates of all of the
 <details>
   <summary>Usages:</summary>
 
-#### Dashboard
+### Dashboard
 * Next 3 Days Schedule (to be verified)
-#### Reporting
+### Reporting
 * Practice Performance
   * Month Forecast
   * Next Month Forecast
@@ -109,3 +179,26 @@ The sum of all production which was delivered as well as estimates of all of the
 
 Formerly known as:
 * Month Forecast
+
+## Live Expected Production (name TBD)
+The sum of all production which was delivered as well as estimates of all of the upcoming production to yet be performed. Unlike **Expected Production**, procedures delivered on the present day are captured in this metric.
+
+> **Live Completed Production** + **Live Scheduled Production**
+
+<details>
+<summary>Technical Details:</summary>
+
+**Historical Production** + **Scheduled Production**
+
+* see [Live Completed Production](#live-completed-production)
+* see [Live Scheduled Production](#live-scheduled-production)
+</details>
+
+<details>
+  <summary>Usages:</summary>
+
+### Dashboard
+### Reporting
+</details>
+
+
