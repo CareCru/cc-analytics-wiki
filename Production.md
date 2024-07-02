@@ -1,6 +1,9 @@
 ## Production (cc-production)
 
-Total value of all dental services provided by a practice which includes all billable services rendered to patients, such as examinations, cleanings, fillings, and other dental procedures.
+```Total value of all dental services provided by a practice which includes all billable services rendered to patients, such as examinations, cleanings, fillings, and other dental procedures.```
+
+See below for a list of refined variations of this metric. 
+
 
 ### Historical Production
 All completed delivered procedures that have occurred before the current day regardless of the type of appointment.
@@ -75,11 +78,9 @@ Uses the monetary amount attached to upcoming delivered procedures and appointme
 </details>
 
 ### Expected Production
-`The sum of all production which was delivered as well as estimates of all of the upcoming production to yet be performed. Production occurring on the current day is captured only as an estimate of what is to be performed.`
+The sum of all production which was delivered as well as estimates of all of the upcoming production to yet be performed. Production occurring on the current day is captured only as an estimate of what is to be performed.
 
 `Note that missed appointments are included`
-
-See below for a list of refined variations of this metric. 
 
 
 <details>
