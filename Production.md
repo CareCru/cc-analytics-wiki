@@ -74,3 +74,33 @@ Uses the monetary amount attached to upcoming delivered procedures and appointme
   * Scheduled Production
 </details>
 
+### Expected Production
+The sum of all production which was delivered as well as estimates of all of the upcoming production to yet be performed. Production occurring on the current day is captured only as an estimate of what is to be performed.
+
+`Note that missed appointments are captured in this metric`
+
+<details>
+<summary>Technical Details:</summary>
+**Historical Production** + **Scheduled Production**
+
+* see [Historical Production](#historical-production)
+* see [Scheduled Production](#scheduled-production)
+</details>
+
+<details>
+  <summary>Usages:</summary>
+
+#### Dashboard
+* Next 3 Days Schedule (to be verified)
+#### Reporting
+* Practice Performance
+  * Month Forecast
+  * Next Month Forecast
+* Provider Performance
+  * Month Forecast
+  * Next Month Forecast
+
+</details>
+
+Formerly known as:
+* Month Forecast
