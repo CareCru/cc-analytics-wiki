@@ -57,9 +57,9 @@ All delivered procedures that have occurred on the current day which includes mi
 <details>
   <summary>Usages:</summary>
 
-### Dashboard
+#### Dashboard
 * Today's Billed Production
-### Reporting
+#### Reporting
 
 </details>
 
@@ -76,11 +76,11 @@ All delivered procedures that have occurred on the current day which includes mi
 <details>
   <summary>Usages:</summary>
 
-### Dashboard
+#### Dashboard
 * Month Gross
 * Production Bar
 * YTD Production
-### Reporting
+#### Reporting
 * Practice Performance
   * Month Forecast
   * Next Month Forecast
@@ -121,9 +121,9 @@ Uses the monetary amount attached to upcoming delivered procedures and appointme
 <details>
   <summary>Usages:</summary>
 
-### Dashboard
+#### Dashboard
 * Today's Scheduled (to be verified)
-### Reporting
+#### Reporting
 * Practice Performance
   * Scheduled Production
 * Provider Performance
@@ -144,8 +144,8 @@ Compliment to **Today's Completed Production** which captures **Scheduled Produc
 <details>
   <summary>Usages:</summary>
 
-### Dashboard
-### Reporting
+#### Dashboard
+#### Reporting
 </details>
 
 ***
@@ -165,9 +165,9 @@ The sum of all production which was delivered as well as estimates of all of the
 <details>
   <summary>Usages:</summary>
 
-### Dashboard
+#### Dashboard
 * Next 3 Days Schedule (to be verified)
-### Reporting
+#### Reporting
 * Practice Performance
   * Month Forecast
   * Next Month Forecast
@@ -197,8 +197,8 @@ The sum of all production which was delivered as well as estimates of all of the
 <details>
   <summary>Usages:</summary>
 
-### Dashboard
-### Reporting
+#### Dashboard
+#### Reporting
 </details>
 
 
