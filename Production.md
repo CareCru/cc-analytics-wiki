@@ -75,12 +75,16 @@ Uses the monetary amount attached to upcoming delivered procedures and appointme
 </details>
 
 ### Expected Production
-The sum of all production which was delivered as well as estimates of all of the upcoming production to yet be performed. Production occurring on the current day is captured only as an estimate of what is to be performed.
+`The sum of all production which was delivered as well as estimates of all of the upcoming production to yet be performed. Production occurring on the current day is captured only as an estimate of what is to be performed.`
 
-`Note that missed appointments are captured in this metric`
+`Note that missed appointments are included`
+
+See below for a list of refined variations of this metric. 
+
 
 <details>
 <summary>Technical Details:</summary>
+
 **Historical Production** + **Scheduled Production**
 
 * see [Historical Production](#historical-production)
