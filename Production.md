@@ -100,6 +100,9 @@ Formerly known as:
 ## Scheduled Production
 Uses the monetary amount attached to upcoming delivered procedures and appointments for the **current day and days in the future**.
 
+> Note: Only dates including the current day and any in the future are included in the Scheduled Production metric.
+> Note: In Tracker these models are independent and as such both are counted; therefore by convention both cannot be entered for the same upcoming visit or it will result in double-counting.
+
 <details>
 <summary>Technical Details:</summary>
 
