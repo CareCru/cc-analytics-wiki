@@ -1,4 +1,4 @@
-# Production (cc-production)
+# Production Metrics
 
 Total value of all dental services provided by a practice which includes all billable services rendered to patients, such as examinations, cleanings, fillings, and other dental procedures.
 
@@ -41,7 +41,8 @@ All completed delivered procedures that have occurred before the current day reg
 Formerly known as:
 * Production MTD
 
-## Today's Completed Production (name TBD)
+## Today's Completed Production
+_name TBD_
 All delivered procedures that have occurred on the current day which includes missed appointments.
 
 > Note: derived from **Historical Production** but specifically scoped to the current day
@@ -63,7 +64,8 @@ All delivered procedures that have occurred on the current day which includes mi
 
 </details>
 
-## Live Completed Production (name TBD)
+## Live Completed Production
+_name TBD_
 > **Historical Production** + **Today's Completed Production**
 
 <details>
@@ -130,7 +132,8 @@ Uses the monetary amount attached to upcoming delivered procedures and appointme
   * Scheduled Production
 </details>
 
-## Live Scheduled Production (name TBD)
+## Live Scheduled Production
+_name TBD_
 Compliment to **Today's Completed Production** which captures **Scheduled Production** that has yet to be processed on the current day and in the future.
 > **Scheduled Production** _minus_ 'estimate procedures which were completed today' 
 
@@ -180,7 +183,8 @@ The sum of all production which was delivered as well as estimates of all of the
 Formerly known as:
 * Month Forecast
 
-## Live Expected Production (name TBD)
+## Live Expected Production
+_name TBD_
 The sum of all production which was delivered as well as estimates of all of the upcoming production to yet be performed. Unlike **Expected Production**, procedures delivered on the present day are captured in this metric.
 
 > **Live Completed Production** + **Live Scheduled Production**
