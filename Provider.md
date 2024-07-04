@@ -47,7 +47,7 @@ Within a defined time period, includes all providers which have isActive as true
 </details>
 
 ## Errant Productive Practice Providers
-Within a defined time period, includes all providers regardless if they are defined as valid but also which have isActive as true OR have an Expected Production amount greater than 0.
+Within a defined time period, includes all providers regardless which are listed as active OR have an Expected Production amount greater than 0, while relaxing the restrictions on what defines a valid provider.
 
 > Note: this definition is meant to be temporary but was created to ensure all providers are included when capturing a practice breakdown
 
@@ -61,9 +61,10 @@ Within a defined time period, includes all providers regardless if they are defi
     * ~type is one of "Dennis", "Hygienist", "Specialist", "CDA"
     * any type is accepted
     * ~createdAt <= end of time period selected~
-    * `firstCompletedProcedure` <= end of time period selected (see below for `firstCompletedProcedure`)
+    * `firstDeliveredProcedure` <= end of time period selected (see below for `firstDeliveredProcedure`)
 * DeliveredProcedure
-  * 
+  * uses MIN(entryDate) to provide a substitute for invalid createdAt entries
+  * `note: no other restrictions are placed on finding the min value as it is meant for a lazy substitution`
 </details>
 
 <details>
