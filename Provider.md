@@ -63,7 +63,7 @@ Within a defined time period, includes all providers regardless which are listed
     * ~createdAt <= end of time period selected~
     * `firstDeliveredProcedure` <= end of time period selected (see below for `firstDeliveredProcedure`)
 * DeliveredProcedure
-  * uses MIN(entryDate) to provide a substitute for invalid createdAt entries
+  * `firstDeliveredProcedure` uses MIN(entryDate) to provide a substitute for invalid createdAt entries
   * `note: no other restrictions are placed on finding the min value as it is meant for a lazy substitution`
 </details>
 
