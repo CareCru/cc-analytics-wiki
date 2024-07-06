@@ -58,7 +58,7 @@ Within a defined time period, includes all providers regardless which are listed
   * see definition in **Productive Practice Providers** except:
     * ~pmsId is not null~
     * any pmsId is accepted
-    * ~type is one of "Dennis", "Hygienist", "Specialist", "CDA"
+    * ~type is one of "Dennis", "Hygienist", "Specialist", "CDA"~
     * any type is accepted
     * ~createdAt <= end of time period selected~
     * `firstDeliveredProcedure` <= end of time period selected (see below for `firstDeliveredProcedure`)
@@ -72,6 +72,9 @@ Within a defined time period, includes all providers regardless which are listed
 
 #### Dashboard
 #### Reporting
+* Production (Huron only version)
+  * Practitioner Production (base query)
+* Practice Performance (base query)
 
 </details>
 
