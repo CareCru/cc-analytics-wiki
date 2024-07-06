@@ -85,13 +85,6 @@ _name TBD_
 * Production Bar
 * YTD Production
 #### Reporting
-* Practice Performance
-  * Month Forecast
-  * Next Month Forecast
-* Provider Performance
-  * Month Forecast
-  * Next Month Forecast
-
 </details>
 
 Formerly known as:
