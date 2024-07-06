@@ -30,7 +30,9 @@ All completed delivered procedures that have occurred before the current day reg
 * Production (Huron only so far)
   * Total Production
   * Practice Production by Type
-    * Total Production
+    * Total Production (segregated by type)
+  * Practitioner Production 
+    * Total Production (segregated by practitioner)
 * Practice Performance 
   * Billed Production
 * Provider Performance
