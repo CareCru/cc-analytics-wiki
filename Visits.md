@@ -104,6 +104,92 @@ All patient visits that have occurred on the current day.
   * Re-Appointment % (Hyg) (denominator)
 </details>
 
+## Today's Patient Visits - Hygiene
+**Today's Patient Visits** where the visit is categorized as a hygiene visit
+
+> Note: derived from ** Historical Patient Visits - Hygiene** but specifically scoped to the current day
+
+<details>
+<summary>Technical Details:</summary>
+
+* see [Historical Patient Visits - Hygiene](#historical-patient-visits-hygiene)
+* DeliveredProcedure
+  * see [Today's Completed Production](#todays-completed-production)
+</details>
+
+<details>
+  <summary>Usages:</summary>
+
+#### Dashboard
+#### Reporting
+
+</details>
+
+## Historical Patient Visits Re-Appointed
+> Comprised of **Historical Patient Visits** where the patient has scheduled another appointment on a future day.
+
+<details>
+<summary>Technical Details:</summary>
+
+* see [Historical Patient Visits](#historical-patient-visits)
+* Patients
+  * nextApptId is not null
+</details>
+SPS Continue here
+<details>
+  <summary>Usages:</summary>
+
+#### Dashboard
+#### Reporting
+* Practice Performance
+  * New Patient Visits
+</details>
+
+## Historical Patient Visits - Hygiene
+> Comprised of **Historical Patient Visits** where the visit is categorized as a hygiene visit
+
+<details>
+<summary>Technical Details:</summary>
+
+* see [Historical Production](#historical-production)
+* DeliveredProcedure
+  * at least one record matches the _procedureCode_:
+    * 111*
+    * 4342*
+    * 00121
+    * D11*
+    * D434*
+    * D4910
+    * D0120
+    * matches a value present in `HygieneTypes` (defined below)
+    * matches a value present in `HygieneCodes` (defined below)
+  * OR at least one record has a _reason_ which:
+    * contains a value present in `HygieneTypes` within the reason (defined below)
+    * contains a value present in `HygieneCodes` within the reason (defined below)
+* Practitioners
+  * type is 'Hygienist'
+* AccountConfiguration
+  * HYGIENE_TYPES for the accountId defines the values identified as `HygieneTypes`
+  * HYGIENE_PROCEDURE_CODES for the accountId defines the values identified as `HygieneCodes`
+
+</details>
+
+<details>
+  <summary>Usages:</summary>
+
+#### Dashboard
+#### Reporting
+* Practice Performance
+  * Total Hygiene Visits
+    * Drill down
+  * Hygiene Visits Re-appointed (denominator)
+    * Drill down
+  * Hygiene Re-appointment % (denominator)
+    * Drill down
+* Provider Performance
+  * Re-Appointment % (Hyg) (denominator)
+</details>
+
 SPS Continue here
 ***
 
