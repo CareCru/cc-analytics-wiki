@@ -125,10 +125,6 @@ Uses the monetary amount attached to upcoming delivered procedures and appointme
 #### Dashboard
 * Today's Scheduled (to be verified)
 #### Reporting
-* Practice Performance
-  * Scheduled Production
-* Provider Performance
-  * Scheduled Production
 </details>
 
 ## Live Scheduled Production
