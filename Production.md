@@ -5,7 +5,7 @@ Total value of all dental services provided by a practice which includes all bil
 > See below for a list of refined variations of this metric
 
 ## Historical Production
-All completed delivered procedures that have occurred before the current day regardless of the type of appointment.
+All dental procedures that have been supplied and billed to the client and have occurred before the current day.
 
 > Note: missed appointments are included
 
@@ -44,8 +44,7 @@ Formerly known as:
 * Production MTD
 
 ## Today's Completed Production
-_name TBD_
-All delivered procedures that have occurred on the current day which includes missed appointments.
+All dental procedures that have been supplied and billed to the client on the current day and updated in real-time.
 
 > Note: derived from **Historical Production** but specifically scoped to the current day
 
@@ -67,7 +66,6 @@ All delivered procedures that have occurred on the current day which includes mi
 </details>
 
 ## Live Completed Production
-_name TBD_
 > **Historical Production** + **Today's Completed Production**
 
 <details>
@@ -127,8 +125,28 @@ Uses the monetary amount attached to upcoming delivered procedures and appointme
 #### Reporting
 </details>
 
+## Today's Scheduled Production
+Includes all **Scheduled Production** that is expected to occur on the current day; however, it does not update within the day when a procedure has been completed.
+> Real-time gathering of **Scheduled Production** (including procedures also in **Today's Completed Production**)
+
+<details>
+<summary>Technical Details:</summary>
+
+* see [Scheduled Production](#scheduled-production)
+* calculated in real-time 
+* still includes procedures that are also captured in **Today's Completed Production**
+</details>
+
+<details>
+  <summary>Usages:</summary>
+
+#### Dashboard
+* Today's Scheduled (to be verified)
+#### Reporting
+</details>
+
+
 ## Live Scheduled Production
-_name TBD_
 Compliment to **Today's Completed Production** which captures **Scheduled Production** that has yet to be processed on the current day and in the future.
 > **Scheduled Production** _minus_ 'estimate procedures which were completed today' 
 
@@ -143,6 +161,7 @@ Compliment to **Today's Completed Production** which captures **Scheduled Produc
   <summary>Usages:</summary>
 
 #### Dashboard
+* Next X Days Schedule (to be verified)
 #### Reporting
 </details>
 
@@ -164,7 +183,6 @@ The sum of all production which was delivered as well as estimates of all of the
   <summary>Usages:</summary>
 
 #### Dashboard
-* Next 3 Days Schedule (to be verified)
 #### Reporting
 * Practice Performance
   * Month Forecast
@@ -179,7 +197,6 @@ Formerly known as:
 * Month Forecast
 
 ## Live Expected Production
-_name TBD_
 The sum of all production which was delivered as well as estimates of all of the upcoming production to yet be performed. Unlike **Expected Production**, procedures delivered on the present day are captured in this metric.
 
 > **Live Completed Production** + **Live Scheduled Production**
