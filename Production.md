@@ -16,7 +16,7 @@ All dental procedures that have been supplied and billed to the client and have 
   * entryDate must be prior to the current day
   * deletedAt must be null
   * isCompleted must be true
-    * `EXCEPTION: Tracker prior to 3.21.0 does not reliably set isCompleted and therefore must be ignored from consideration`
+    * `EXCEPTION: the following release ignore isCompleted: Tracker before 3.21.0, `
   * in rare cases when duplicate entries exist for one pmsId, then the maximum totalAmount present across those records is used in the evaluation
   * `Note: isDeletedFromPms is not evaluated at this point`
 </details>
@@ -121,8 +121,11 @@ Uses the monetary amount attached to upcoming delivered procedures and appointme
   <summary>Usages:</summary>
 
 #### Dashboard
-* Today's Scheduled (to be verified)
 #### Reporting
+* Practice Performance
+  * Scheduled Production
+* Provider Performance
+  * Scheduled Production
 </details>
 
 ## Today's Scheduled Production
