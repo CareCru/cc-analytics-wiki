@@ -91,22 +91,15 @@ Formerly known as:
 ***
 
 ## Scheduled Production
-Uses the monetary amount attached to upcoming delivered procedures and appointments for the **current day and days in the future**.
+Uses the monetary amount attached to upcoming appointments for the **current day and days in the future**.
 
 > Note: Only dates including the current day and any in the future are included in the Scheduled Production metric.
 
-> Note: In Tracker these models are independent and as such both are counted; therefore by convention both cannot be entered for the same upcoming visit or it will result in double-counting.
+> Note: In Tracker the value does not incorporate values in the delivered procedures; whereas in Dentrix those values are synced as delivered procedures are added.
 
 <details>
 <summary>Technical Details:</summary>
 
-* DeliveredProcedure
-  * uses totalAmount
-  * entryDate must be current day or in the future
-  * isCompleted is ignored
-  * deletedAt must be null
-  * in rare cases when duplicate entries exist for one pmsId, then the maximum totalAmount present across those records is used in the evaluation
-  * `Note: isDeletedFromPms is not evaluated at this point`
 * Appointments
   * uses estimatedRevenue
   * startDate must be current day or in the future
