@@ -129,6 +129,8 @@ Includes all **Scheduled Production** that is expected to occur on the current d
 <summary>Technical Details:</summary>
 
 * see [Scheduled Production](#scheduled-production)
+** startDate must be within the current day
+** endDate must be within the current day
 * calculated in real-time 
 * still includes procedures that are also captured in **Today's Completed Production**
 </details>
@@ -150,6 +152,7 @@ Compliment to **Today's Completed Production** which captures **Scheduled Produc
 <summary>Technical Details:</summary>
 
 * see [Scheduled Production](#scheduled-production)
+** startDate must be in the future
 * excludes procedures that would now be captured in **Today's Completed Production**
 </details>
 
