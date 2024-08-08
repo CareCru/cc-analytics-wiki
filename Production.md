@@ -137,7 +137,7 @@ Includes all **Scheduled Production** that is expected to occur on the current d
   <summary>Usages:</summary>
 
 #### Dashboard
-* Today's Scheduled (to be verified)
+* Today's Scheduled
 #### Reporting
 </details>
 
@@ -157,7 +157,7 @@ Compliment to **Today's Completed Production** which captures **Scheduled Produc
   <summary>Usages:</summary>
 
 #### Dashboard
-* Next X Days Schedule (to be verified)
+* Next X Days Schedule
 #### Reporting
 </details>
 
