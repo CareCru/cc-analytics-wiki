@@ -47,7 +47,7 @@ Within a defined time period, includes all providers which have isActive as true
 </details>
 
 ## Errant Productive Practice Providers
-Within a defined time period, includes all providers regardless which are listed as active OR have an Expected Production amount greater than 0, while relaxing the restrictions on what defines a valid provider.
+Within a defined time period, includes all providers which are listed as active OR have an Expected Production amount greater than 0, while relaxing the restrictions on what defines a valid provider.
 
 > Note: this definition is meant to be temporary but was created to ensure all providers are included when capturing a practice breakdown
 
