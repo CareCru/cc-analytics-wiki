@@ -35,6 +35,11 @@ Aggregation of multiple delivered procedures completed on one day which have a *
     * Drill down
   * Re-Appointment % (denominator)
     * Drill down
+* Provider Performance - Aggregated
+  * Patient Visits
+    * Drill down
+  * Re-Appointment % (denominator)
+    * Drill down
 
 </details>
 
@@ -102,6 +107,9 @@ All patient visits that have occurred on the current day.
     * Drill down
 * Provider Performance
   * Re-Appointment % (Hyg) (denominator)
+* Provider Performance - Aggregated
+  * Re-Appointment % (Hyg) (denominator)
+
 </details>
 
 ## Today's Patient Visits - Hygiene
@@ -188,6 +196,9 @@ SPS Continue here
     * Drill down
 * Provider Performance
   * Re-Appointment % (Hyg) (denominator)
+* Provider Performance - Aggregated
+  * Re-Appointment % (Hyg) (denominator)
+
 </details>
 
 SPS Continue here
@@ -230,6 +241,9 @@ Uses the monetary amount attached to upcoming delivered procedures and appointme
   * Scheduled Production
 * Provider Performance
   * Scheduled Production
+* Provider Performance - Aggregated
+  * Scheduled Production
+
 </details>
 
 ## Live Scheduled Production
@@ -277,7 +291,9 @@ The sum of all production which was delivered as well as estimates of all of the
 * Provider Performance
   * Month Forecast
   * Next Month Forecast
-
+* Provider Performance - Aggregated
+  * Month Forecast
+  * Next Month Forecast
 </details>
 
 Formerly known as:
