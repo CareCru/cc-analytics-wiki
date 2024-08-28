@@ -37,6 +37,8 @@ All dental procedures that have been supplied and billed to the client and have 
   * Billed Production
 * Provider Performance
   * Billed Production
+* Provider Performance - Aggregated
+  * Billed Production
 
 </details>
 
@@ -119,6 +121,8 @@ Uses the monetary amount attached to upcoming appointments for the **current day
   * Scheduled Production
 * Provider Performance
   * Scheduled Production
+* Provider Performance - Aggregated
+  * Scheduled Production
 </details>
 
 ## Today's Scheduled Production
@@ -187,6 +191,9 @@ The sum of all production which was delivered as well as estimates of all of the
   * Month Forecast
   * Next Month Forecast
 * Provider Performance
+  * Month Forecast
+  * Next Month Forecast
+* Provider Performance - Aggregated
   * Month Forecast
   * Next Month Forecast
 
