@@ -74,7 +74,8 @@ Within a defined time period, includes all providers which are listed as active 
 #### Reporting
 * Production (Huron only version)
   * Practitioner Production (base query)
-* Practice Performance (base query)
+* Provider Performance (base query)
+* Provider Performance - Aggregated (base query)
 
 </details>
 
