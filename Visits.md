@@ -202,8 +202,7 @@ SPS Continue here
 </details>
 
 ## New Patient Visits
-> Comprised of **Historical Patient Visits** where visit is the first for a patient.
-
+> Comprised of **Historical Patient Visits** where the patient has no prior **Historical Patient Visit**.
 <details>
 <summary>Technical Details:</summary>
 
@@ -231,7 +230,7 @@ SPS Continue here
 </details>
 
 ## Engaged Patient Visits
-> Comprised of **Historical Patient Visits** where the patient's previous visit was within 18 months.
+> Comprised of **Historical Patient Visits** where the patient has a prior **Historical Patient Visit** within 18 months of the visit in question.
 
 <details>
 <summary>Technical Details:</summary>
@@ -261,7 +260,7 @@ SPS Continue here
 </details>
 
 ## Re-Engaged Patient Visits
-> Comprised of **Historical Patient Visits** where the patient's previous visit was not within 18 months.
+> Comprised of **Historical Patient Visits** where the patient has a prior **Historical Patient Visit** but that most recent visit is not within 18 months of the visit in question.
 
 <details>
 <summary>Technical Details:</summary>
