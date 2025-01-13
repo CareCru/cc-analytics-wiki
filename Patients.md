@@ -11,7 +11,7 @@ Patient that had a [New Patient Visit](/CareCru/analytics-service/wiki/Visits#ne
 
 TBD: should we account for deletedAt?
 
-> **Engagement Metrics***
+> **Engagement Metrics**
 > 
 > Engagement metrics are defined purely based on the characteristics of the patient's visit history. 
 
