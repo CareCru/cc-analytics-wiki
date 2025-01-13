@@ -201,123 +201,63 @@ SPS Continue here
 
 </details>
 
-SPS Continue here
-***
-
-## Scheduled Production
-Uses the monetary amount attached to upcoming delivered procedures and appointments for the **current day and days in the future**.
-
-> Note: Only dates including the current day and any in the future are included in the Scheduled Production metric.
-
-> Note: In Tracker these models are independent and as such both are counted; therefore by convention both cannot be entered for the same upcoming visit or it will result in double-counting.
+## Engaged Patient Visits - Hygiene
+> Comprised of **Historical Patient Visits** where the patient's previous visit was within 18 months.
 
 <details>
 <summary>Technical Details:</summary>
 
 * DeliveredProcedure
-  * uses totalAmount
-  * entryDate must be current day or in the future
-  * isCompleted is ignored
-  * deletedAt must be null
-  * in rare cases when duplicate entries exist for one pmsId, then the maximum totalAmount present across those records is used in the evaluation
-  * `Note: isDeletedFromPms is not evaluated at this point`
-* Appointments
-  * uses estimatedRevenue
-  * startDate must be current day or in the future
-  * deletedAt must be null
-  * isMissed must be false
-  * isCancelled is false
-  * isDeleted must be false
-  * isPending must be false
+  * uses COUNT( DISTINCT patientId, entryDate )
+  * see [Historical Production](#historical-production)
+  * procedureCode NOT IN `MissedAppointmentCodes` (defined below)
+  * totalAmount > 0
+  * having DeliveredProcedure prevDP 
+    * prevDP.patientId, prevDp.entryDate >= entryDate - 18 months
+    * prevDP.procedureCode NOT IN `MissedAppointmentCodes` (defined below)
+    * prevDP.totalAmount > 0
+* Patient
+  * note: status can be Active or Inactive
+  * note: deletedAt can be set
+* AccountConfiguration
+  * APPOINTMENT_MISSED_CUSTOM_KEY for the accountId defines the values identified as `MissedAppointmentCodes`
 </details>
 
 <details>
   <summary>Usages:</summary>
-
 #### Dashboard
-* Today's Scheduled (to be verified)
 #### Reporting
-* Practice Performance
-  * Scheduled Production
-* Provider Performance
-  * Scheduled Production
-* Provider Performance - Aggregated
-  * Scheduled Production
-
+* Patient Visits
+  * SPS - TBD
 </details>
 
-## Live Scheduled Production
-_name TBD_
-Compliment to **Today's Completed Production** which captures **Scheduled Production** that has yet to be processed on the current day and in the future.
-> **Scheduled Production** _minus_ 'estimate procedures which were completed today' 
+## Re-Engaged Patient Visits - Hygiene
+> Comprised of **Historical Patient Visits** where the patient's previous visit was not within 18 months.
 
 <details>
 <summary>Technical Details:</summary>
 
-* see [Scheduled Production](#scheduled-production)
-* excludes procedures that would now be captured in **Today's Completed Production**
+* DeliveredProcedure
+  * uses COUNT( DISTINCT patientId, entryDate )
+  * see [Historical Production](#historical-production)
+  * procedureCode NOT IN `MissedAppointmentCodes` (defined below)
+  * totalAmount > 0
+  * having DeliveredProcedure prevDP 
+    * prevDP.patientId, prevDp.entryDate < entryDate - 18 months
+    * prevDP.procedureCode NOT IN `MissedAppointmentCodes` (defined below)
+    * prevDP.totalAmount > 0
+* Patient
+  * note: status can be Active or Inactive
+  * note: deletedAt can be set
+* AccountConfiguration
+  * APPOINTMENT_MISSED_CUSTOM_KEY for the accountId defines the values identified as `MissedAppointmentCodes`
 </details>
 
 <details>
   <summary>Usages:</summary>
-
 #### Dashboard
 #### Reporting
-</details>
-
-***
-
-## Expected Production
-The sum of all production which was delivered as well as estimates of all of the upcoming production to yet be performed. Production occurring on the current day is captured only as an estimate of what is to be performed.
-
-> **Historical Production** + **Scheduled Production**
-
-<details>
-<summary>Technical Details:</summary>
-
-* see [Historical Production](#historical-production)
-* see [Scheduled Production](#scheduled-production)
-</details>
-
-<details>
-  <summary>Usages:</summary>
-
-#### Dashboard
-* Next 3 Days Schedule (to be verified)
-#### Reporting
-* Practice Performance
-  * Month Forecast
-  * Next Month Forecast
-* Provider Performance
-  * Month Forecast
-  * Next Month Forecast
-* Provider Performance - Aggregated
-  * Month Forecast
-  * Next Month Forecast
-</details>
-
-Formerly known as:
-* Month Forecast
-
-## Live Expected Production
-_name TBD_
-The sum of all production which was delivered as well as estimates of all of the upcoming production to yet be performed. Unlike **Expected Production**, procedures delivered on the present day are captured in this metric.
-
-> **Live Completed Production** + **Live Scheduled Production**
-
-<details>
-<summary>Technical Details:</summary>
-
-**Historical Production** + **Scheduled Production**
-
-* see [Live Completed Production](#live-completed-production)
-* see [Live Scheduled Production](#live-scheduled-production)
-</details>
-
-<details>
-  <summary>Usages:</summary>
-
-#### Dashboard
-#### Reporting
+* Patient Visits
+  * SPS - TBD
 </details>
 
