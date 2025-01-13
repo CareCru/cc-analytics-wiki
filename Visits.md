@@ -201,7 +201,7 @@ SPS Continue here
 
 </details>
 
-## Engaged Patient Visits - Hygiene
+## Engaged Patient Visits
 > Comprised of **Historical Patient Visits** where the patient's previous visit was within 18 months.
 
 <details>
@@ -231,7 +231,7 @@ SPS Continue here
   * SPS - TBD
 </details>
 
-## Re-Engaged Patient Visits - Hygiene
+## Re-Engaged Patient Visits
 > Comprised of **Historical Patient Visits** where the patient's previous visit was not within 18 months.
 
 <details>
