@@ -202,7 +202,7 @@ SPS Continue here
 </details>
 
 ## New Patient Visits
-> Comprised of **Historical Patient Visits** where the patient's previous visit was not within 18 months.
+> Comprised of **Historical Patient Visits** where visit is the first for a patient.
 
 <details>
 <summary>Technical Details:</summary>
