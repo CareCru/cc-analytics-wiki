@@ -201,6 +201,35 @@ SPS Continue here
 
 </details>
 
+## New Patient Visits
+> Comprised of **Historical Patient Visits** where the patient's previous visit was not within 18 months.
+
+<details>
+<summary>Technical Details:</summary>
+
+* DeliveredProcedure
+  * uses COUNT( DISTINCT patientId, entryDate )
+  * see [Historical Production](#historical-production)
+  * procedureCode NOT IN `MissedAppointmentCodes` (defined below)
+  * totalAmount > 0
+  * having NO DeliveredProcedure prevDP such that
+    * prevDP.procedureCode NOT IN `MissedAppointmentCodes` (defined below)
+    * prevDP.totalAmount > 0
+* Patient
+  * note: status can be Active or Inactive
+  * note: deletedAt can be set
+* AccountConfiguration
+  * APPOINTMENT_MISSED_CUSTOM_KEY for the accountId defines the values identified as `MissedAppointmentCodes`
+</details>
+
+<details>
+  <summary>Usages:</summary>
+#### Dashboard
+#### Reporting
+* Patient Visits
+  * SPS - TBD
+</details>
+
 ## Engaged Patient Visits
 > Comprised of **Historical Patient Visits** where the patient's previous visit was within 18 months.
 
