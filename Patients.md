@@ -7,7 +7,8 @@ Patients can be considered on several different dimensions such as their Engagem
 > See below for a list of refined variations of this metric
 
 ## New Patient
-Patient that had their first visit during the time period, regardless of when the profile was created.
+Patient that had a [New Patient Visit](/CareCru/analytics-service/wiki/Visits#new-patient-visits) during the time period, regardless of when the profile was created.
+
 TBD: should we account for deletedAt?
 
 > Engagement Metrics
@@ -21,7 +22,7 @@ _Note that if a patient could have the qualifications for multiple engagement ty
 * Disengaged Patient
 
 ## Re-engaged Patient
-Patient that had a Re-Engaged Visit during the time period.
+Patient that had a [Re-Engaged Patient Visit](/CareCru/analytics-service/wiki/Visits#re-engaged-patient-visits) during the time period.
 
 ## Engaged Patient
 Aggregate of all unique patients that have had at least one visit within the last 18 months. (SPS-TODO: add link to visit definition)
