@@ -17,11 +17,11 @@ TBD: should we account for deletedAt?
 _Note that if a patient could have the qualifications for multiple engagement types then only one is attributed based on the following hierarchy:
 * New Patient
 * Disengaging Patient 
-* Re-engaged Patient
+* Re-Engaged Patient
 * Engaged Patient
 * Disengaged Patient
 
-## Re-engaged Patient
+## Re-Engaged Patient
 Patient that had a [Re-Engaged Patient Visit](/CareCru/analytics-service/wiki/Visits#re-engaged-patient-visits) during the time period.
 
 ## Engaged Patient
