@@ -26,7 +26,7 @@ _Note that if a patient could have the qualifications for multiple engagement ty
 Patient that had a [Re-Engaged Patient Visit](/CareCru/analytics-service/wiki/Visits#re-engaged-patient-visits) during the time period.
 
 ## Engaged Patient
-Aggregate of all unique patients that have had at least one visit within the last 18 months. (SPS-TODO: add link to visit definition)
+Patients that was created and has at least one [Historical Patient Visit](/CareCru/analytics-service/wiki/Visits#historical-patient-visits) within the last 18 months from the start of the reporting time period.
 
 <details>
 <summary>Technical Details:</summary>
