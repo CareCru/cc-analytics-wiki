@@ -11,31 +11,11 @@ The stages of a **Diagnosed Treatments Funnel** include:
 * Treatments Diagnosed
 * Treatments Not Rejected
 * Treatments Booked
+* Treatments Scheduled
 * Treatments Completed
 
-### Treatments Diagnosed
-All procedures grouped as a Treatment Plan that the practitioner has presented to the patient but not yet acted upon. This would include all treatments that have not been accepted, cancelled, deleted, or completed. When querying this metric, the date that the treatment was originally presented to the patient will be used as the date for the treatment plan.
-
-<details>
-<summary>Technical Details:</summary>
-
-* DeliveredProcedure
-  * treatmentPlanId cannot be null
-  * originDate cannot be null and must fall within time range of query
-  * deletedAt is null
-  * scheduledStatus is one of 'Unscheduled', 'Cancelled', or null
-</details>
-
-<details>
-  <summary>Usages:</summary>
-
-### Dashboard
-### Reporting
-
-</details>
-
 ### FM Treatments Diagnosed
-All procedures grouped as a Treatment Plan that the practitioner has presented to the patient. This would include all treatments regardless if they have been accepted, cancelled, deleted, or completed. When querying this metric, the date that the treatment was originally presented to the patient will be used as the date for the treatment plan.
+All procedures which are associated to a treatment plan and have not been deleted. 
 
 <details>
 <summary>Technical Details:</summary>
@@ -44,20 +24,24 @@ All procedures grouped as a Treatment Plan that the practitioner has presented t
   * treatmentPlanId cannot be null
   * originDate cannot be null and must fall within time range of query
   * deletedAt is null
-  * scheduledStatus is one of 'Completed', 'Schedules', 'Unscheduled', 'Cancelled', or null
-    * OR: scheduledStatus is 'Done (Unlinked)' AND isCompleted is FALSE
 </details>
+
+### FS Treatments Diagnosed
+All procedures which are associated to a treatment plan and were diagnosed within the reporting period which have neither been deleted nor accepted.
 
 <details>
-  <summary>Usages:</summary>
+<summary>Technical Details:</summary>
 
-### Dashboard
-### Reporting
-
+* DeliveredProcedure
+  * treatmentPlanId cannot be null
+  * originDate cannot be null and must fall within time range of query
+  * deletedAt is null
+  * isDeleted is false
+  * isAccepted is false
 </details>
 
-SPS - Continue from here using RPT-346/RPT-351, RPT-347/RPT-353, RPT-348/RPT-352
 ### FM Treatments Not Rejected
+All procedures which were diagnosed and were not captured as rejected.
 
 <details>
 <summary>Technical Details:</summary>
@@ -66,17 +50,92 @@ SPS - Continue from here using RPT-346/RPT-351, RPT-347/RPT-353, RPT-348/RPT-352
   * treatmentPlanId cannot be null
   * originDate cannot be null and must fall within time range of query
   * deletedAt is null
-  * scheduledStatus is one of 'Completed', 'Schedules', 'Unscheduled', 'Cancelled', or null
-    * OR: scheduledStatus is 'Done (Unlinked)' AND isCompleted is FALSE
+  * isDeleted is false
+  * isCancelled is false
+  * isAccepted is true OR
+    * has associated AppointmentId
+* Appointments
+  * any appointment (indicates booked)
 </details>
+
+
+### FS Treatments Not Rejected
+All procedures which were diagnosed and were not captured as rejected.
 
 <details>
-  <summary>Usages:</summary>
+<summary>Technical Details:</summary>
 
-### Dashboard
-### Reporting
-
+* DeliveredProcedure
+  * treatmentPlanId cannot be null
+  * originDate cannot be null and must fall within time range of query
+  * deletedAt is null
+  * isDeleted is false
+  * isCancelled is false
+  * isAccepted is true
+  * isCompleted is false
+  * appointmentId is null
 </details>
 
+### FM Treatments Booked
+All procedures which were at one point associated to an appointment whether it is currently active or not.
 
+<details>
+<summary>Technical Details:</summary>
+
+* DeliveredProcedure
+  * treatmentPlanId cannot be null
+  * originDate cannot be null and must fall within time range of query
+  * deletedAt is null
+  * isDeleted is false
+  * isCancelled is false
+  * appointmentId is not null
+</details>
+
+### FS Treatments Booked
+All procedures which were at one point associated to an appointment but that appointment is no longer active.
+
+<details>
+<summary>Technical Details:</summary>
+
+* DeliveredProcedure
+  * treatmentPlanId cannot be null
+  * originDate cannot be null and must fall within time range of query
+  * deletedAt is null
+  * isDeleted is false
+  * isCancelled is false
+  * appointmentId is not null
+  * JOIN associated appointment using logic:
+    * when isCompleted is true, find Appointment for patientId on same date as entryDate
+    * when isCompleted is false, use appointmentId
+* Appointments
+  * ANY of the following is true:
+    * isDeleted is true
+    * isPending is true
+    * isCancelled is true
+    * isMissed is true
+</details>
+
+### FS Treatments Scheduled
+All procedures which have a totalAmount > 0 and are associated to either an active upcoming appointment or to a completed appointment which wasn't missed.
+
+<details>
+<summary>Technical Details:</summary>
+
+* DeliveredProcedure
+  * treatmentPlanId cannot be null
+  * originDate cannot be null and must fall within time range of query
+  * deletedAt is null
+  * isDeleted is false
+  * isCancelled is false
+  * appointmentId is not null
+  * totalAmount > 0
+  * JOIN associated appointment using logic:
+    * when isCompleted is true, find Appointment for patientId on same date as entryDate
+    * when isCompleted is false, use appointmentId
+* Appointments
+  * isDeleted is false
+  * isPending is false
+  * isCancelled is false
+  * isMissed is false
+</details>
 
