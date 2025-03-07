@@ -24,10 +24,11 @@ All procedures which are associated to a treatment plan and have not been delete
   * treatmentPlanId cannot be null
   * originDate cannot be null and must fall within time range of query
   * deletedAt is null
+  * isDeleted is false
 </details>
 
 ### FS Treatments Diagnosed
-All procedures which are associated to a treatment plan and were diagnosed within the reporting period which have neither been deleted nor accepted.
+All procedures included as treatments diagnosed which have not been accepted.
 
 <details>
 <summary>Technical Details:</summary>
@@ -41,7 +42,7 @@ All procedures which are associated to a treatment plan and were diagnosed withi
 </details>
 
 ### FM Treatments Not Rejected
-All procedures which were diagnosed and were not captured as rejected.
+All procedures included as treatments diagnosed which were accepted and/or booked.
 
 <details>
 <summary>Technical Details:</summary>
@@ -60,7 +61,7 @@ All procedures which were diagnosed and were not captured as rejected.
 
 
 ### FS Treatments Not Rejected
-All procedures which were diagnosed and were not captured as rejected.
+All procedures included as treatments diagnosed which were accepted but were not subsequently booked.
 
 <details>
 <summary>Technical Details:</summary>
@@ -77,7 +78,7 @@ All procedures which were diagnosed and were not captured as rejected.
 </details>
 
 ### FM Treatments Booked
-All procedures which were at one point associated to an appointment whether it is currently active or not.
+All procedures included as treatments diagnosed which were at one point associated to an appointment whether it is currently active or not.
 
 <details>
 <summary>Technical Details:</summary>
@@ -92,7 +93,7 @@ All procedures which were at one point associated to an appointment whether it i
 </details>
 
 ### FS Treatments Booked
-All procedures which were at one point associated to an appointment but that appointment is no longer active.
+All procedures included as treatments diagnosed which are associated to an appointment that appointment is no longer active.
 
 <details>
 <summary>Technical Details:</summary>
