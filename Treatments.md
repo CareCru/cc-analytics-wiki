@@ -52,7 +52,7 @@ All procedures included as treatments diagnosed which were accepted and/or booke
   * originDate cannot be null and must fall within time range of query
   * deletedAt is null
   * isDeleted is false
-  * scheduledStatus != 'Cancelled'
+  * isAccepted is true
 * Appointments
   * any appointment (indicates booked)
 </details>
