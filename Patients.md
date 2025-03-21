@@ -4,73 +4,45 @@ Patients can be considered on several different dimensions such as their Engagem
 
 **It is important to note that ALL mentions of a visit on this page refer to a visit that was completed, was not a missed appointment, and had a production amount > 0.**
 
-> See below for a list of refined variations of this metric
+## CC Active Patient 
+Patient who is an **Engaged Patient** and has a PMS patient status of 'Active' at the end of the reporting period indicated.
 
-## New Patient
-Patient that had a [New Patient Visit](/CareCru/analytics-service/wiki/Visits#new-patient-visits) during the time period, regardless of when the patient record was created.
+---
 
-TBD: should we account for deletedAt?
-
-> **Engagement Metrics**
-> 
-> Engagement metrics are defined purely based on the characteristics of the patient's visit history. 
+## Patient Engagment Type
+> Consists as one of **New Patient**, **Engaged Patient**, or **Re-Engaged Patient**
 
 _Note that if a patient could have the qualifications for multiple engagement types then only one is attributed based on the following hierarchy_:
 * New Patient
-* Disengaging Patient 
 * Re-Engaged Patient
 * Engaged Patient
-* Disengaged Patient
 
-## Re-Engaged Patient
-Patient that had a [Re-Engaged Patient Visit](/CareCru/analytics-service/wiki/Visits#re-engaged-patient-visits) during the time period.
-
-## Engaged Patient
-Patients that was created and has at least one [Historical Patient Visit](/CareCru/analytics-service/wiki/Visits#historical-patient-visits) within the last 18 months from the end of the reporting time period.
+### New Patient
+Patient that was created within the time period of the report.
 
 <details>
 <summary>Technical Details:</summary>
 
-* DeliveredProcedure
-  * SPS TODO
-  * uses COUNT( DISTINCT patientId )
-  * see [Historical Production](#historical-production)
-  * procedureCode NOT IN `MissedAppointmentCodes` (defined below)
-  * totalAmount > 0
-* Patient
-  * note: status can be Active or Inactive
-  * note: deletedAt can be set
-* AccountConfiguration
-  * APPOINTMENT_MISSED_CUSTOM_KEY for the accountId defines the values identified as `MissedAppointmentCodes`
+* see [New Patient Visit](/CareCru/analytics-service/wiki/Visits#new-patient-visits
+  * is **New Patient** if a **New Patient Visit** is within the time period
 </details>
 
-<details>
-  <summary>Usages:</summary>
-
-### Dashboard
-### Reporting
-
-</details>
-
-## Disengaging Patient
-Patients whose last visit is newer than 18 months prior to the start date of the query AND the last visit is 18 months prior to the end date of the query.
-
-## Disengaged Patient
-Patient has not had a visit in longer than 18 months.
+### Re-Engaged Patient
+Patient that was not created within the time period, had at least one [Patient Visit](/CareCru/analytics-service/wiki/Visits#patient-visits) which occurred at least 18 months from the previous one, and is active at the end of the time period.
 
 <details>
 <summary>Technical Details:</summary>
 
-* see [Historical Patient Visits](#historical-patient-visits)
-* DeliveredProcedure
-  * see [Today's Completed Production](#todays-completed-production)
+* see [Re-Engaged Patient Visit](/CareCru/analytics-service/wiki/Visits#re-engaged-patient-visits
+  * has **Re-Engaged Patient Visit** within the time period of the report
 </details>
+
+### Engaged Patient
+Patient that was not created within the time period and had one or more [Engaged Patient Visits](/CareCru/analytics-service/wiki/Visits#engaged-patient-visits) during the reporting time period.
 
 <details>
-  <summary>Usages:</summary>
+<summary>Technical Details:</summary>
 
-#### Dashboard
-#### Reporting
-
+* see [Engaged Patient Visit](/CareCru/analytics-service/wiki/Visits#engaged-patient-visits
+  * has **Engaged Patient Visit** within the time period of the report
 </details>
-
