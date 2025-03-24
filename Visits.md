@@ -9,7 +9,7 @@ Aggregation of multiple delivered procedures completed on one day which have a *
 
 * DeliveredProcedure
   * uses COUNT( DISTINCT patientId, entryDate )
-  * see [Billed Production](/CareCru/analytics-service/wiki/Production#billed-production)
+  * see [Billed Production](./Production.md#billed-production)
   * procedureCode NOT IN `MissedAppointmentCodes` (defined below)
 * Patient
   * note: status can be Active or Inactive
@@ -26,7 +26,7 @@ Comprised of **Patient Visits** where the visit is categorized as a hygiene visi
 <details>
 <summary>Technical Details:</summary>
 
-* see [Billed Production](/CareCru/analytics-service/wiki/Production#billed-production)
+* see [Billed Production](./Production.md#billed-production)
 * DeliveredProcedure
   * at least one record matches the _procedureCode_:
     * 111*
@@ -71,8 +71,8 @@ Comprised of **Patient Visits** where the patient has no prior **Patient Visit**
 <summary>Technical Details:</summary>
 
 * DeliveredProcedure
-  * see [Patient Visit](#patient-visit)
-  * ALSO: this record is first [Patient Visit](#patient-visit) for this patient
+  * see [Patient Visit](#patient-visits)
+  * ALSO: this record is first [Patient Visit](#patient-visits) for this patient
 </details>
 
 ### Engaged Patient Visits
@@ -82,8 +82,8 @@ Comprised of **Patient Visits** where the patient has a prior **Patient Visit** 
 <summary>Technical Details:</summary>
 
 * DeliveredProcedure
-  * see [Patient Visit](#patient-visit)
-  * ALSO: another record exists within 18 months prior to this visit which also qualifies as a [Patient Visit](#patient-visit)
+  * see [Patient Visit](#patient-visits)
+  * ALSO: another record exists within 18 months prior to this visit which also qualifies as a [Patient Visit](#patient-visits)
 </details>
 
 ### Re-Engaged Patient Visits
@@ -93,6 +93,6 @@ Comprised of **Patient Visits** where the patient has a prior **Patient Visit** 
 <summary>Technical Details:</summary>
 
 * DeliveredProcedure
-  * see [Patient Visit](#patient-visit)
-  * ALSO: no record exists within 18 months prior to this visit which also qualifies as a [Patient Visit](#patient-visit), but this is not the first valid visit
+  * see [Patient Visit](#patient-visits)
+  * ALSO: no record exists within 18 months prior to this visit which also qualifies as a [Patient Visit](#patient-visits), but this is not the first valid visit
 </details>

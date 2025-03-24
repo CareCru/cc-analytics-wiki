@@ -23,26 +23,26 @@ Patient that was created within the time period of the report.
 <details>
 <summary>Technical Details:</summary>
 
-* see [New Patient Visit](/CareCru/analytics-service/wiki/Visits#new-patient-visits
+* see [New Patient Visit](./Visits.md#new-patient-visits)
   * is **New Patient** if a **New Patient Visit** is within the time period
 </details>
 
 ### Re-Engaged Patient
-Patient that was not created within the time period, had at least one [Patient Visit](/CareCru/analytics-service/wiki/Visits#patient-visits) which occurred at least 18 months from the previous one, and is active at the end of the time period.
+Patient that was not created within the time period, had at least one [Patient Visit](./Visits.md#patient-visits) which occurred at least 18 months from the previous one, and is active at the end of the time period.
 
 <details>
 <summary>Technical Details:</summary>
 
-* see [Re-Engaged Patient Visit](/CareCru/analytics-service/wiki/Visits#re-engaged-patient-visits
+* see [Re-Engaged Patient Visit](./Visits.md#re-engaged-patient-visits)
   * has **Re-Engaged Patient Visit** within the time period of the report
 </details>
 
 ### Engaged Patient
-Patient that was not created within the time period and had one or more [Engaged Patient Visits](/CareCru/analytics-service/wiki/Visits#engaged-patient-visits) during the reporting time period.
+Patient that was not created within the time period and had one or more [Engaged Patient Visits](./Visits.md#engaged-patient-visits) during the reporting time period.
 
 <details>
 <summary>Technical Details:</summary>
 
-* see [Engaged Patient Visit](/CareCru/analytics-service/wiki/Visits#engaged-patient-visits
+* see [Engaged Patient Visit](./Visits.md#engaged-patient-visits)
   * has **Engaged Patient Visit** within the time period of the report
 </details>
