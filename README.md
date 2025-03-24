@@ -6,9 +6,9 @@ Within Intelligence reports, the metrics are calculated overnight and therefore 
 
 ### Fundamental Metrics
 There are some initial definitions worth understanding which many of the subsequent metrics are built from. As suitable order for initial understanding is:
-* Production
-* Visits
-* Patients
+* [Production](./Production.md)
+* [Visits](./Visits.md)
+* [Patients](./Patients.md)
 
 From there, the other metrics are more interchangeable with less back-references.
 
