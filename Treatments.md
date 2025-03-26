@@ -28,7 +28,7 @@ The stages of a **Diagnosed Treatments Funnel** include:
 * **FM Diagnosed** - All procedures which are associated to a treatment plan and have not been deleted
 * **FM Not Rejected** - All treatment which have not been marked as rejected
 * **FM Booked** - All treatments which have at some point had an appointment (regardless if it was just pending, or has been subsequently cancelled, etc)
-* **FM Scheduled** - All treatments which are linked to an upcoming appointment that is still in good standing
+* **FM Scheduled** - All treatments which are linked to an upcoming appointment that is still in good standing, including Appointments marked as pending.
 * **FM Completed** - All treatments which have been completed
 
 ---
@@ -69,7 +69,7 @@ All procedures included as [FM Not Rejected](#fm-not-rejected) which were at one
 </details>
 
 ### FM Scheduled
-All procedures included as [FM Not Rejected](#fm-not-rejected) which have an [FM Completed](#fm-completed) procedure or a currently active appointment.
+All procedures included as [FM Not Rejected](#fm-not-rejected) which have an [FM Completed](#fm-completed) procedure or a currently active appointment, including Appointments marked as pending.
 
 <details>
 <summary>Technical Details:</summary>
@@ -83,7 +83,7 @@ All procedures included as [FM Not Rejected](#fm-not-rejected) which have an [FM
   * isDeleted is false
   * isCancelled is false
   * isMissed is false
-  * isPending is false
+  * note: isPending can be true or false
 </details>
 
 ### FM Completed
