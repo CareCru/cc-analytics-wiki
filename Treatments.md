@@ -26,7 +26,7 @@ Within this funnel a treatment will belong to exactly one status; however, as pa
 
 The stages of a **Diagnosed Treatments Funnel** include:
 * **FM Diagnosed** - All procedures which are associated to a treatment plan and have not been deleted
-* **FM Not Rejected** - All treatment which have not been marked as rejected
+* **FM Opportunity** - All treatment which have not been explicitly rejected
 * **FM Booked** - All treatments which have at some point had an appointment (regardless if it was just pending, or has been subsequently cancelled, etc)
 * **FM Scheduled** - All treatments which are linked to an upcoming appointment that is still in good standing, including Appointments marked as pending.
 * **FM Completed** - All treatments which have been completed
@@ -45,36 +45,36 @@ All procedures which are associated to a treatment plan and have not been delete
   * originDate cannot be null and must fall within time range of query
 </details>
 
-### FM Not Rejected
-All procedures included as [FM Diagnosed](#fm-diagnosed) which were not marked as rejected.
+### FM Opportunity
+All procedures included as [FM Diagnosed](#fm-diagnosed) which not explicitly rejected
 
 <details>
 <summary>Technical Details:</summary>
 
 * see [Diagnosed Treatments : FM Diagnosed](#fm-diagnosed)
 * DeliveredProcedure
-  * isAccepted is not false
+  * isAccepted is true
 </details>
 
 ### FM Booked
-All procedures included as [FM Not Rejected](#fm-not-rejected) which were at one point associated to an appointment whether it is currently active or not, or which are captured as [FM Completed](#fm-completed).
+All procedures included as [FM Opportunity](#fm-opportunity) which were at one point associated to an appointment whether it is currently active or not, or which are captured as [FM Completed](#fm-completed).
 
 <details>
 <summary>Technical Details:</summary>
 
-* see [Diagnosed Treatments : FM Not Rejected](#fm-not-rejected)
+* see [Diagnosed Treatments : FM Opportunity](#fm-opportunity)
 * see [Diagnosed Treatments : FM Completed](#fm-completed)
 * DeliveredProcedure
   * appointmentId is not null
 </details>
 
 ### FM Scheduled
-All procedures included as [FM Not Rejected](#fm-not-rejected) which have an [FM Completed](#fm-completed) procedure or a currently active appointment, including Appointments marked as pending.
+All procedures included as [FM Opportunity](#fm-opportunity) which have an [FM Completed](#fm-completed) procedure or a currently active appointment, including Appointments marked as pending.
 
 <details>
 <summary>Technical Details:</summary>
 
-* see [Diagnosed Treatments : FM Not Rejected](#fm-not-rejected)
+* see [Diagnosed Treatments : FM Opportunity](#fm-opportunity)
 * see [Diagnosed Treatments : FM Completed](#fm-completed)
 * DeliveredProcedure
   * appointmentId is not null
@@ -106,16 +106,16 @@ All procedures included as treatments diagnosed which have not been accepted.
 <details>
 <summary>Technical Details:</summary>
 
-* [Diagnosed Treatments : FM Diagnosed](#fm-diagnosed) but not [Diagnosed Treatments : FM Not Rejected](#fm-not-rejected)
+* [Diagnosed Treatments : FM Diagnosed](#fm-diagnosed) but not [Diagnosed Treatments : FM Opportunity](#fm-opportunity)
 </details>
 
-### FS Not Rejected
+### FS Opportunity
 All procedures included as treatments diagnosed which were accepted but were not subsequently booked.
 
 <details>
 <summary>Technical Details:</summary>
 
-* [Diagnosed Treatments : FM Not Rejected](#fm-diagnosed) but not [Diagnosed Treatments : FM Booked](#fm-booked)
+* [Diagnosed Treatments : FM Opportunity](#fm-opportunity) but not [Diagnosed Treatments : FM Booked](#fm-booked)
 </details>
 
 ### FS Booked
